@@ -1,0 +1,54 @@
+@page
+@model HealthCenterMaster.Pages.Physiotherapists.IndexModel
+
+@{
+    ViewData["Title"] = "Fisioterapeuta";
+}
+
+<section class="container">
+
+    <div class="d-flex justify-content-between align-items-center w-100">
+        <h2>@ViewData["Title"]</h2>
+        <p class="btn-base">
+            <a asp-page="Create">Cadastrar</a>
+        </p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Nome")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Physiotherapist[0].Crefito)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Physiotherapist[0].Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Physiotherapist)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Crefito)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td class="d-flex justify-content-end gap-4">
+                         <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fa  fa-pencil fs-3 text-success"></i></a> 
+                        <a asp-page="./Details" asp-route-id="@item.Id"><i class="fa  fa-info-circle fs-3 text-info"></i></a> 
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fa  fa-trash-o fs-3 text-danger"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

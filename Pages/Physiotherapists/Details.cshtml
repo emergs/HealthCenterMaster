@@ -1,0 +1,48 @@
+@page
+@model HealthCenterMaster.Pages.Physiotherapists.DetailsModel
+
+@{
+    ViewData["Title"] = "Fisioterapeuta";
+}
+
+<section class="d-flex flex-column h-100 container1200">
+    <div class="details-position px-5">
+        <h2 class="pl-5">@ViewData["Title"]</h2>
+        <h4 class="pl-5">Detalhes</h4>
+        <hr class="pl-5" />
+    </div>
+
+    <div class="details-position px-5">
+        <dl class="d-flex justify-content-center flex-column w-100 gap-4">
+            <div class="details-position-flex">
+                <dt class="w-50 pl-5">
+                    @Html.DisplayNameFor(model => model.Physiotherapist.Name)
+                </dt>
+                <dd class="w-50 pl-5">
+                    @Html.DisplayFor(model => model.Physiotherapist.Name)
+                </dd>
+            </div>
+            <div class="details-position-flex">
+                <dt class="w-50 pl-5">
+                    @Html.DisplayNameFor(model => model.Physiotherapist.Crefito)
+                </dt>
+                <dd class="w-50 pl-5">
+                    @Html.DisplayFor(model => model.Physiotherapist.Crefito)
+                </dd>
+            </div>
+            <div class="details-position-flex">
+                <dt class="w-50 pl-5">
+                    @Html.DisplayNameFor(model => model.Physiotherapist.Email)
+                </dt>
+                <dd class="w-50 pl-5">
+                    @Html.DisplayFor(model => model.Physiotherapist.Email)
+                </dd>
+            </div>
+        </dl>
+        <hr class="pl-5" />
+        <div class="pl-5 pt-5">
+            <a asp-page="./Edit" asp-route-id="@Model.Physiotherapist?.Id">Editar</a> |
+            <a asp-page="./Index">Voltar</a>
+        </div>
+    </div>
+</section>

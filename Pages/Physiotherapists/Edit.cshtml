@@ -1,0 +1,45 @@
+@page
+@model HealthCenterMaster.Pages.Physiotherapists.EditModel
+
+@{
+    ViewData["Title"] = "Fisioterapeuta";
+}
+
+<div class="d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-3">
+        <form method="post">
+            <h2>@ViewData["Title"]</h2>
+            <h4>Tela de edição</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Physiotherapist.Id" />
+            <div class="form-group input-group-lg">
+                <label asp-for="Physiotherapist.Name" class="control-label"></label>
+                <input asp-for="Physiotherapist.Name" class="form-control" />
+                <span asp-validation-for="Physiotherapist.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group input-group-lg">
+                <label asp-for="Physiotherapist.Crefito" class="control-label"></label>
+                <input asp-for="Physiotherapist.Crefito" class="form-control" />
+                <span asp-validation-for="Physiotherapist.Crefito" class="text-danger"></span>
+            </div>
+            <div class="form-group input-group-lg">
+                <label asp-for="Physiotherapist.Email" class="control-label"></label>
+                <input asp-for="Physiotherapist.Email" class="form-control" />
+                <span asp-validation-for="Physiotherapist.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="w-100 btn btn-lg btn-primary" />Salvar</button>
+            </div>
+            <div>
+                <a asp-page="./Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

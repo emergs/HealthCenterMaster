@@ -1,0 +1,63 @@
+@page
+@model HealthCenterMaster.Pages.Schedules.IndexModel
+
+@{
+    ViewData["Title"] = "Agenda";
+}
+
+<section class="container">
+
+    <div class="d-flex justify-content-between align-items-center w-100">
+        <h2>@ViewData["Title"]</h2>
+        <p class="btn-base">
+            <a asp-page="Create">Agendar Horário</a>
+        </p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Data")
+                </th>
+                <th>
+                    @Html.DisplayName("Hora")
+                </th>
+                <th>
+                    @Html.DisplayName("Cliente")
+                </th>
+                <th>
+                    @Html.DisplayName("Fisioterapeuta")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Schedule)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Client.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Physiotherapist.Name)
+                    </td>
+                    <td class="d-flex justify-content-end gap-4">
+                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fa  fa-pencil fs-3 text-success"></i></a>
+                        <a asp-page="./Details" asp-route-id="@item.Id"><i
+                                class="fa  fa-info-circle fs-3 text-info"></i></a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"><i class="fa  fa-trash-o fs-3 text-danger"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</section>
