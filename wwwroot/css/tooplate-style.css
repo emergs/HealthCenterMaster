@@ -794,7 +794,13 @@ header span i {
   background: #4267b2;
 }
 
-
+#news h3, #news p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 
 /*---------------------------------------
       APPOINTMENT             

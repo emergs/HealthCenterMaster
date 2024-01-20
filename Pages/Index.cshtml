@@ -3,16 +3,30 @@
 @using HealthCenterMaster.Models
 @{
 
-    Time[] time = new Time[]
+    Team[] team = new Team[]
     {
-        new Time { Name = "Ana Silva", Email = "ana.silva@healthcenter.com", Phone = "(41) 98765-4321", Image = "images/fisioterapeuta2.jpg", Specialty = "Fisioterapeuta" },
-        new Time { Name = "Carlos Oliveira", Email = "carlos.oliveira@healthcenter.com", Phone = "(41) 98765-1234", Image = "images/fisioterapeuta1.jpg", Specialty = "Fisioterapeuta" },
-        new Time { Name = "Mariana Santos", Email = "mariana.santos@healthcenter.com", Phone = "(41) 98765-5678", Image = "images/fisioterapeuta3.jpg", Specialty = "Fisioterapeuta" }
+new Team { Name = "Ana Silva", Email = "ana.silva@healthcenter.com", Phone = "(41) 98765-4321", Image =
+"images/fisioterapeuta2.jpg", Specialty = "Fisioterapeuta" },
+new Team { Name = "Carlos Oliveira", Email = "carlos.oliveira@healthcenter.com", Phone = "(41) 98765-1234", Image =
+"images/fisioterapeuta1.jpg", Specialty = "Fisioterapeuta" },
+new Team { Name = "Mariana Santos", Email = "mariana.santos@healthcenter.com", Phone = "(41) 98765-5678", Image =
+"images/fisioterapeuta3.jpg", Specialty = "Fisioterapeuta" }
+    };
+
+    News[] news = new News[]
+    {
+new News { Title = "Avanços Tecnológicos na Fisioterapia: Robôs Revolucionam a Reabilitação", Content = "Um grupo de pesquisadores em fisioterapia desenvolveu robôs inovadores para auxiliar na reabilitação de pacientes. Esses robôs utilizam tecnologia de ponta para fornecer exercícios personalizados, acelerando o processo de recuperação. Os resultados promissores indicam uma mudança significativa na forma como a fisioterapia é praticada.", Author = "Marcus Harris", Author_Specialty =
+"Fisioterapia Ortopédica", Data = new DateTime(2023, 12, 12,20,30,00), Image = "images/maos-robo.jpg"},
+new News { Title = "Fisioterapia Aquática: Uma Abordagem Refrescante para a Reabilitação", Content = "Em um estudo recente, fisioterapeutas exploraram os benefícios da fisioterapia aquática para pacientes com condições musculares e articulares. Descobriu-se que a resistência da água proporciona um ambiente de baixo impacto, promovendo a mobilidade e aliviando a dor. A fisioterapia aquática emerge como uma opção refrescante e eficaz para a recuperação.", Author = "Emily Bennett",
+Author_Specialty = "Fisioterapia Aquática", Data = new DateTime(2023, 12, 20,15,00,00), Image = "images/hidroginastica.jpg"},
+new News { Title = "Mindfulness na Fisioterapia: Integrando o Bem-Estar Mental e Físico", Content = "Fisioterapeutas estão adotando abordagens inovadoras, como a incorporação de mindfulness no tratamento. A prática de mindfulness, que envolve a atenção plena e a consciência do corpo, está sendo integrada aos exercícios fisioterapêuticos. Esta abordagem holística visa não apenas à recuperação física, mas também ao bem-estar mental, proporcionando aos pacientes uma experiência completa de cuidados de saúde.", Author = "Brandon Foster",
+Author_Specialty = "Fisioterapia Geriátrica", Data = new DateTime(2023, 12, 15,10,35,30), Image = "images/ioga.jpg"}
     };
 
     ViewData["Title"] = "Home page";
     ViewData["Profissao"] = "Fisioterapeuta";
-    ViewBag.Time = time;
+    ViewBag.Team = team;
+    ViewBag.News = news;
 };
 
 
@@ -105,27 +119,27 @@
 
             <div class="clearfix"></div>
 
-            @foreach(var integrante in ViewBag.Time)
+            @foreach (var integrante in ViewBag.Team)
             {
-            <div class="col-md-4 col-sm-6">
-                <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                    <img src=@integrante.Image class="img-responsive" alt="">
+                <div class="col-md-4 col-sm-6">
+                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                        <img src=@integrante.Image class="img-responsive" alt="">
 
-                    <div class="team-info">
-                        <h3>@integrante.Name</h3>
-                        <p>@integrante.Specialty</p>
-                        <div class="team-contact-info">
-                            <p><i class="fa fa-phone"></i>@integrante.Phone</p>
-                            <p><i class="fa fa-envelope-o"></i> <a href="#">@integrante.Email</a></p>
+                        <div class="team-info">
+                            <h3>@integrante.Name</h3>
+                            <p>@integrante.Specialty</p>
+                            <div class="team-contact-info">
+                                <p><i class="fa fa-phone"></i>@integrante.Phone</p>
+                                <p><i class="fa fa-envelope-o"></i> <a href="#">@integrante.Email</a></p>
+                            </div>
+                            <ul class="social-icon">
+                                <li><a href="#" class="fa fa-linkedin-square"></a></li>
+                                <li><a href="#" class="fa fa-envelope-o"></a></li>
+                            </ul>
                         </div>
-                        <ul class="social-icon">
-                            <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                            <li><a href="#" class="fa fa-envelope-o"></a></li>
-                        </ul>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
             }
         </div>
     </div>
@@ -144,69 +158,30 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6">
-                <!-- NEWS THUMB -->
-                <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
-                    <a href="news-detail.html">
-                        <img src="images/news-image1.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="news-info">
-                        <span>March 08, 2018</span>
-                        <h3><a href="news-detail.html">About Amazing Technology</a></h3>
-                        <p>Maecenas risus neque, placerat volutpat tempor ut, vehicula et felis.</p>
-                        <div class="author">
-                            <img src="images/author-image.jpg" class="img-responsive" alt="">
-                            <div class="author-info">
-                                <h5>Jeremie Carlson</h5>
-                                <p>CEO / Founder</p>
+            @foreach (var newsletter in ViewBag.News)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <!-- NEWS THUMB -->
+                    <div class="news-thumb wow fadeInUp" data-wow-delay="0.4s">
+                        <a href="news-detail.html">
+                            <img src=@newsletter.Image class="img-responsive" alt="">
+                        </a>
+                        <div class="news-info">
+                            <span>@newsletter.Data</span>
+                            <h3><a href="news-detail.html">@newsletter.Title</a></h3>
+                            <p>@newsletter.Content</p>
+                            <div class="author">
+                                <img src="images/author-image.jpg" class="img-responsive" alt="">
+                                <div class="author-info">
+                                    <h5>@newsletter.Author</h5>
+                                    <p>@newsletter.Author_Specialty</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4 col-sm-6">
-                <!-- NEWS THUMB -->
-                <div class="news-thumb wow fadeInUp" data-wow-delay="0.6s">
-                    <a href="news-detail.html">
-                        <img src="images/news-image2.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="news-info">
-                        <span>February 20, 2018</span>
-                        <h3><a href="news-detail.html">Introducing a new healing process</a></h3>
-                        <p>Fusce vel sem finibus, rhoncus massa non, aliquam velit. Nam et est ligula.</p>
-                        <div class="author">
-                            <img src="images/author-image.jpg" class="img-responsive" alt="">
-                            <div class="author-info">
-                                <h5>Jason Stewart</h5>
-                                <p>General Director</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <!-- NEWS THUMB -->
-                <div class="news-thumb wow fadeInUp" data-wow-delay="0.8s">
-                    <a href="news-detail.html">
-                        <img src="images/news-image3.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="news-info">
-                        <span>January 27, 2018</span>
-                        <h3><a href="news-detail.html">Review Annual Medical Research</a></h3>
-                        <p>Vivamus non nulla semper diam cursus maximus. Pellentesque dignissim.</p>
-                        <div class="author">
-                            <img src="images/author-image.jpg" class="img-responsive" alt="">
-                            <div class="author-info">
-                                <h5>Andrio Abero</h5>
-                                <p>Online Advertising</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            }
         </div>
     </div>
 </section>
@@ -283,6 +258,6 @@
             4. Copy only URL and paste it within the src="" field below
     -->
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d900.7875944367613!2d-49.253505604281315!3d-25.433235580903226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4457720226d%3A0x396c51faf73f5f22!2sR.%20Jos%C3%A9%20de%20Alencar%2C%20303%20-%20Cristo%20Rei%2C%20Curitiba%20-%20PR%2C%2080045-115!5e0!3m2!1spt-PT!2sbr!4v1705774257726!5m2!1spt-PT!2sbr"
         width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
 </section>
