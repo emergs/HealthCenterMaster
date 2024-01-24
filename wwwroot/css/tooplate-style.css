@@ -794,7 +794,8 @@ header span i {
   background: #4267b2;
 }
 
-#news h3, #news p{
+#news h3,
+#news p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -883,13 +884,23 @@ footer a:hover {
 }
 
 .latest-stories {
+  display: flex;
   margin-bottom: 20px;
 }
 
-.stories-image,
-.stories-info {
-  display: inline-block;
-  vertical-align: top;
+.stories-info a{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.stories-image {
+  min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stories-image img {
@@ -960,6 +971,10 @@ footer a:hover {
   background: #4267b2;
   color: #ffffff;
   transform: translateY(-5px);
+}
+
+.footer-message {
+  text-align: justify;
 }
 
 
