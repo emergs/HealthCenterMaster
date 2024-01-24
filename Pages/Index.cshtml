@@ -16,18 +16,18 @@ new Team { Name = "Mariana Santos", Email = "mariana.santos@healthcenter.com", P
     News[] news = new News[]
     {
 new News { Title = "Avanços Tecnológicos na Fisioterapia: Robôs Revolucionam a Reabilitação", Content = "Um grupo de pesquisadores em fisioterapia desenvolveu robôs inovadores para auxiliar na reabilitação de pacientes. Esses robôs utilizam tecnologia de ponta para fornecer exercícios personalizados, acelerando o processo de recuperação. Os resultados promissores indicam uma mudança significativa na forma como a fisioterapia é praticada.", Author = "Marcus Harris", Author_Specialty =
-"Fisioterapia Ortopédica", Data = new DateTime(2023, 12, 12,20,30,00), Image = "images/maos-robo.jpg"},
+"Fisioterapia Ortopédica", Date = new DateTime(2023, 12, 12,20,30,00), Image = "images/maos-robo.jpg"},
 new News { Title = "Fisioterapia Aquática: Uma Abordagem Refrescante para a Reabilitação", Content = "Em um estudo recente, fisioterapeutas exploraram os benefícios da fisioterapia aquática para pacientes com condições musculares e articulares. Descobriu-se que a resistência da água proporciona um ambiente de baixo impacto, promovendo a mobilidade e aliviando a dor. A fisioterapia aquática emerge como uma opção refrescante e eficaz para a recuperação.", Author = "Emily Bennett",
-Author_Specialty = "Fisioterapia Aquática", Data = new DateTime(2023, 12, 20,15,00,00), Image = "images/hidroginastica.jpg"},
+Author_Specialty = "Fisioterapia Aquática", Date = new DateTime(2023, 12, 20,15,00,00), Image = "images/hidroginastica.jpg"},
 new News { Title = "Mindfulness na Fisioterapia: Integrando o Bem-Estar Mental e Físico", Content = "Fisioterapeutas estão adotando abordagens inovadoras, como a incorporação de mindfulness no tratamento. A prática de mindfulness, que envolve a atenção plena e a consciência do corpo, está sendo integrada aos exercícios fisioterapêuticos. Esta abordagem holística visa não apenas à recuperação física, mas também ao bem-estar mental, proporcionando aos pacientes uma experiência completa de cuidados de saúde.", Author = "Brandon Foster",
-Author_Specialty = "Fisioterapia Geriátrica", Data = new DateTime(2023, 12, 15,10,35,30), Image = "images/ioga.jpg"}
-    };
+Author_Specialty = "Fisioterapia Geriátrica", Date = new DateTime(2023, 12, 15,10,35,30), Image = "images/ioga.jpg"}
+    }; 
 
     ViewData["Title"] = "Home page";
     ViewData["Profissao"] = "Fisioterapeuta";
     ViewBag.Team = team;
     ViewBag.News = news;
-};
+}
 
 
 @{
@@ -167,7 +167,7 @@ Author_Specialty = "Fisioterapia Geriátrica", Data = new DateTime(2023, 12, 15,
                             <img src=@newsletter.Image class="img-responsive" alt="">
                         </a>
                         <div class="news-info">
-                            <span>@newsletter.Data</span>
+                            <span>@newsletter.Date</span>
                             <h3><a href="news-detail.html">@newsletter.Title</a></h3>
                             <p>@newsletter.Content</p>
                             <div class="author">
