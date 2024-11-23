@@ -2,3 +2,7 @@ bin
 obj
 Migrations
 ScaffoldingReadMe.txt
+.vercel
+
+# Local Netlify folder
+.netlify
